@@ -14,7 +14,7 @@ coming soon
 
 
 ## Screenshots
-![Fexplo Screenshot 1](https://github.com/codotronix/pcr-mc/blob/master/Extras/screenshots/v001/pcr-mc-screen-1.PNG)
+![PCR-MC Screenshot 1](https://github.com/codotronix/pcr-mc/blob/master/screenshots/v001/pcr-mc-screen-1.PNG)
 
 
 ## Features
