@@ -1,6 +1,7 @@
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/codotronix/pcr-mc/blob/master/LICENSE)
 [![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg)](https://github.com/codotronix/pcr-mc)
 [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/codotronix/pcr-mc)
+[![Build Status](https://travis-ci.com/codotronix/pcr-mc.svg?branch=master)](https://travis-ci.com/codotronix/pcr-mc)
 
 # PCR-MC (PCRemote-Mobile Controller)
 
