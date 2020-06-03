@@ -6,7 +6,7 @@
 
 This is the controller component of project pcr. This component will be responsible for collecting user inputs and convey them to the IS (i.e. Intermediate Server). Also this component will show feedbacks (if any) sent back from IS.
 
-**Project PCR** can be found [here](https://github.com/codotronix/pcr)
+**Project PCR** can be found at [https://github.com/codotronix/pcr](https://github.com/codotronix/pcr)
 
 
 ## Menu
