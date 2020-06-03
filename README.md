@@ -10,7 +10,8 @@ This is the controller component of project pcr. This component will be responsi
 
 
 ## Menu
-coming soon
+- [Screenshots](https://github.com/codotronix/pcr-mc/blob/master/README.md#screenshots)
+- [Features](https://github.com/codotronix/pcr-mc/blob/master/README.md#features)
 
 
 ## Screenshots
