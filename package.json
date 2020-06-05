@@ -21,6 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test-cov": "react-scripts test --coverage --watchAll=false",
+    "test-codecov": "react-scripts test --coverage --watchAll=false && codecov",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "codecov": "^3.7.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2"
   }
