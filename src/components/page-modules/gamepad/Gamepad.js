@@ -2,11 +2,11 @@ import React, { createRef, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core'
 import _ from 'lodash'
-import axios from 'axios'
-import { getRoot } from '../../../utils/config'
+// import axios from 'axios'
+// import { getRoot } from '../../../utils/config'
 import { getDegCos } from './trigon'
 import GamesIcon from '@material-ui/icons/Games';
-const ROOT = getRoot()
+// const ROOT = getRoot()
 
 const useStyles = makeStyles({
     wheel: {
@@ -175,7 +175,7 @@ const Gamepad = props => {
             w2: { ...midW2 }
         })
         
-    }, [])
+    }, [w1, w2])
 
     const setMousePrev = (e, wID) => {
         const pageX = Math.round(e.pageX || e.touches[0].pageX)
