@@ -158,7 +158,7 @@ const Gamepad = props => {
     useEffect(() => {
         // If already set, just return to avoid infinite loop
         if(midPointsWheels) return
-        
+
         // Calculate MidPoint for Wheel1 and Wheel2
         let rect1 = w1.current.getBoundingClientRect()
         let rect2 = w2.current.getBoundingClientRect()
@@ -178,7 +178,7 @@ const Gamepad = props => {
             w2: { ...midW2 }
         })
         
-    }, [w1, w2])
+    }, [w1, w2, midPointsWheels])
 
     const setMousePrev = (e, wID) => {
         const pageX = Math.round(e.pageX || e.touches[0].pageX)
