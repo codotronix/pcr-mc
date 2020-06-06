@@ -153,9 +153,12 @@ const Gamepad = props => {
     const [w1Deg, setW1Deg] = useState(9)
     const [w2Deg, setW2Deg] = useState(90)
     const [prevMousePos, setPrevMousePos] = useState({})
-    const [midPointsWheels, setMidPointsWheels] = useState({})
+    const [midPointsWheels, setMidPointsWheels] = useState(null)
 
     useEffect(() => {
+        // If already set, just return to avoid infinite loop
+        if(midPointsWheels) return
+        
         // Calculate MidPoint for Wheel1 and Wheel2
         let rect1 = w1.current.getBoundingClientRect()
         let rect2 = w2.current.getBoundingClientRect()
