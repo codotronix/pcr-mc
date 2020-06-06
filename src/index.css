@@ -18,6 +18,14 @@ code {
     monospace;
 }
 
+.main-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 40px;
+  bottom: 0;
+}
+
 /**************************************************
 * UTILITY CLASSES
 **************************************************/
