@@ -111,6 +111,36 @@ const useStyles = makeStyles({
             top: 45,
             left: 99
         }
+    },
+    middleBtns: {
+        position: 'relative',
+        width: 200,
+        // border: '1px solid #ccc',
+        borderRadius: 10,
+        margin: 'calc(100vh - 220px) auto',
+        display: 'grid',
+        gridTemplate: 'auto / 1fr 1fr',
+        fontSize: 11,
+        '& .btn': {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 10
+        },
+        '& .btn::before': {
+            content: '""',
+            height: 9,
+            width: 36,
+            border: '5px double #fff',
+            background: '#000',
+            borderRadius: 20,
+            marginBottom: 1,
+            opacity: .9
+        },
+        '& .btn:active::before': {
+            opacity: .5
+        }
     }
 })
 
@@ -181,7 +211,7 @@ const Gamepad = props => {
                 setW1Deg(w1Deg + degree)
             }
             else if(wID === 'w2') {
-                setW2Deg(w2Deg + degree)
+                setW2Deg(w2Deg - degree)
             }
         }
         
@@ -232,6 +262,14 @@ const Gamepad = props => {
                 <div className="btn b">B</div>
                 <div className="btn a">A</div>
                 <div className="btn x">X</div>
+            </div>
+
+            {/* THE MIDDLE BUTTONS SECTION */}
+            <div className={classes.middleBtns}>
+                <div className="btn">PAUSE</div>
+                <div className="btn">START</div>
+                {/* <div className="btn">Button1</div>
+                <div className="btn">Button2</div> */}
             </div>
         </div>
     )
