@@ -72,3 +72,6 @@ const mapDispatchToProps = dispatch => ({
     openSidebar: () => dispatch({ type: UI_SIDEBAR_OPEN })
 })
 export default connect(null, mapDispatchToProps)(withRouter(Header))
+
+// Export for Testing
+export { Header }
