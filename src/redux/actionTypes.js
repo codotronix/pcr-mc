@@ -1,0 +1,1 @@
+export const UI_UPDATE_URL = 'ui-update-url'

@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
-import { Link } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
+// import { connect } from 'react-redux'
 import MenuIcon from '@material-ui/icons/Menu';
 import { headerbarRoutes } from '../../../utils/routes'
+// import {
+//     UI_UPDATE_URL
+// }
+// from '../../../redux/actionTypes'
 
 const useStyles = makeStyles({
     root: {
@@ -31,17 +36,31 @@ const useStyles = makeStyles({
         height: '100%',
         fontSize: 26,
         color: '#fff'
+    },
+    active: {
+        background: 'rgba(255, 255, 255, .3)'
     }
 })
 
 const Header = props => {
     const classes = useStyles()
+    const [ currentPath, setCurrentPath ] = useState('')
+    const { history } = props
+
+    useEffect(() => {
+        setCurrentPath(history.location.pathname)
+    }, [history.location.pathname])
+
     return (
         <div className={classes.root}>
             <MenuIcon className={classes.menuBtn} />
             {
                 headerbarRoutes.map (r => (
-                    <Link to={r.path} key={r.name}>
+                    <Link 
+                        to={r.path} 
+                        key={r.name}
+                        className={(currentPath === r.path) ? classes.active : ''}
+                    >
                         <r.icon />
                     </Link>
                 ))
@@ -50,4 +69,4 @@ const Header = props => {
     )
 }
 
-export default Header
+export default withRouter(Header)
