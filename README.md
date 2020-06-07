@@ -12,9 +12,14 @@ This is the controller component of project pcr. This component will be responsi
 
 
 ## Menu
+- [Demo](https://github.com/codotronix/pcr-mc/blob/master/README.md#demo)
 - [Screenshots](https://github.com/codotronix/pcr-mc/blob/master/README.md#screenshots)
 - [Features](https://github.com/codotronix/pcr-mc/blob/master/README.md#features)
 
+
+## Demo
+The demo is meant to be viewed from mobile in landscape view. If you are viewing from desktop browser, make sure to go to browser's developer tools -> mobile emulator -> landscape mode to properly experience this demo - 
+[https://codotronix.github.io/pcr-mc/](https://codotronix.github.io/pcr-mc/)
 
 ## Screenshots
 ![PCR-MC Screenshot 1](https://github.com/codotronix/pcr-mc/blob/master/extras/screenshots/v002/1-430w.png)
