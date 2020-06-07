@@ -4,8 +4,8 @@ node_js:
 # cache:
 #   directories:
 #     - node_modules
-install:
-  - npm install -g codecov
+# install:
+#   - npm install -g codecov
 script:
   - npm i
   - npm run build

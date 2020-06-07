@@ -9,7 +9,9 @@ const initState = {
 }
 
 const uiReducer = (state=initState, action) => {
-    const { type, payload } = action
+    // const { type, payload } = action
+    const { type } = action
+    
     switch(type) {
         case UI_SIDEBAR_OPEN: {
             return {
