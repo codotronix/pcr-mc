@@ -1,20 +1,26 @@
 import {
-    UI_UPDATE_URL
+    UI_SIDEBAR_OPEN,
+    UI_SIDEBAR_CLOSE
 }
 from '../actionTypes'
 
 const initState = {
-    currentPath: ''
+    sidebarOpen: false
 }
 
 const uiReducer = (state=initState, action) => {
     const { type, payload } = action
     switch(type) {
-        case UI_UPDATE_URL: {
-            const { currentPath } = payload
+        case UI_SIDEBAR_OPEN: {
             return {
                 ...state,
-                currentPath
+                sidebarOpen: true
+            }
+        }
+        case UI_SIDEBAR_CLOSE: {
+            return {
+                ...state,
+                sidebarOpen: false
             }
         }
         default:

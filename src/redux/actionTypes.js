@@ -1,1 +1,2 @@
-export const UI_UPDATE_URL = 'ui-update-url'
+export const UI_SIDEBAR_OPEN = 'ui sidebar open'
+export const UI_SIDEBAR_CLOSE = 'ui sidebar close'

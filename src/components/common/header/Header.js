@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
 import { Link, withRouter } from "react-router-dom"
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import MenuIcon from '@material-ui/icons/Menu';
 import { headerbarRoutes } from '../../../utils/routes'
-// import {
-//     UI_UPDATE_URL
-// }
-// from '../../../redux/actionTypes'
+import {
+    UI_SIDEBAR_OPEN
+}
+from '../../../redux/actionTypes'
 
 const useStyles = makeStyles({
     root: {
@@ -45,7 +45,7 @@ const useStyles = makeStyles({
 const Header = props => {
     const classes = useStyles()
     const [ currentPath, setCurrentPath ] = useState('')
-    const { history } = props
+    const { history, openSidebar } = props
 
     useEffect(() => {
         setCurrentPath(history.location.pathname)
@@ -53,7 +53,7 @@ const Header = props => {
 
     return (
         <div className={classes.root}>
-            <MenuIcon className={classes.menuBtn} />
+            <MenuIcon className={classes.menuBtn} onClick={openSidebar} />
             {
                 headerbarRoutes.map (r => (
                     <Link 
@@ -68,5 +68,7 @@ const Header = props => {
         </div>
     )
 }
-
-export default withRouter(Header)
+const mapDispatchToProps = dispatch => ({
+    openSidebar: () => dispatch({ type: UI_SIDEBAR_OPEN })
+})
+export default connect(null, mapDispatchToProps)(withRouter(Header))
