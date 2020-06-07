@@ -22,6 +22,34 @@ This is the controller component of project pcr. This component will be responsi
 
 
 ## Features
+This section lists all the features that are complete and yet to be completed.
+
+- [x] Mouse Trackpad
+
+- [ ] Mouse wheel up and down, simulated using up and down arrows
+
+- [x] Mouse left-click button, denoted by **L**
+
+- [x] Mouse right-click button, denoted by **R**
+
+- [x] Mouse double-click button, denoted by **D**
+
+- [ ] Gamepad rotation control on left (can be mapped to any rotation control e.g. rotate the camera / robot head etc)
+
+- [ ] Gamepad rotation control on right (can be mapped to any rotation control e.g. rotate the front wheel of tri-wheeler etc)
+
+- [ ] Gamepad arrow buttons on left (can be mapped to directional movement etc)
+
+- [ ] Gamepad 4 action buttons on right (can be mapped to various actions as required)
+
+- [ ] Gamepad - a *start* and *pause* button (can be mapped to start and stop / pause as per requirement)
+
+- [ ] Keyboard - send a single keystroke
+
+- [ ] Keyboard - group and send multiple keystrokes together
+
+- [ ] Keyboard - ways to modify keypress with Ctrl, Shift, Alt e.g. `Ctrl+A`, `Ctrl+Shift+I`, `Alt+F4` etc
+
 
 
 *********************************
