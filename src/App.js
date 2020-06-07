@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-import { Header } from './components/common'
+import { Header, Sidebar } from './components/common'
 import './App.css';
 import { headerbarRoutes } from './utils/routes'
 
@@ -13,6 +13,7 @@ function App() {
     <div className="App">
       <Router>
         <Header />
+        <Sidebar />
         <div className="main-container">
           <Switch>
             {

@@ -17,7 +17,8 @@ This is the controller component of project pcr. This component will be responsi
 
 
 ## Screenshots
-![PCR-MC Screenshot 1](https://github.com/codotronix/pcr-mc/blob/master/screenshots/v001/pcr-mc-screen-1.PNG)
+![PCR-MC Screenshot 1](https://github.com/codotronix/pcr-mc/blob/master/extras/screenshots/v002/1-430w.png)
+![PCR-MC Screenshot 1](https://github.com/codotronix/pcr-mc/blob/master/extras/screenshots/v002/2-430w.png)
 
 
 ## Features
