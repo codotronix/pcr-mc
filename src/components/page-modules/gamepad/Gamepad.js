@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core'
 import _ from 'lodash'
 // import axios from 'axios'
 // import { getRoot } from '../../../utils/config'
-import { getDegCos, isNegativeAngle, getDegTan } from './trigon'
+import { getDegCos, isNegativeAngle } from './trigon'
 import GamesIcon from '@material-ui/icons/Games'
 import RotateIcon from '@material-ui/icons/Replay'
 // const ROOT = getRoot()
