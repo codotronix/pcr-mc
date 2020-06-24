@@ -4,19 +4,47 @@ import { makeStyles } from '@material-ui/core'
 import _ from 'lodash'
 // import axios from 'axios'
 // import { getRoot } from '../../../utils/config'
-import { getDegCos } from './trigon'
-import GamesIcon from '@material-ui/icons/Games';
+import { getDegCos, isNegativeAngle } from './trigon'
+import GamesIcon from '@material-ui/icons/Games'
+import RotateIcon from '@material-ui/icons/Replay'
 // const ROOT = getRoot()
 
 const useStyles = makeStyles({
+    wheelSet: {
+        position: 'absolute',
+        bottom: 10,
+        '&.left': {
+            left: 120
+        },
+        '&.right': {
+            right: 120
+        },
+        '& .rotate': {
+            position: 'absolute',
+            bottom: 0,
+            fontSize: 30,
+            opacity: .5,
+            '&:active': {
+                opacity: .9
+            },
+            '&.left': {
+                left: -30,
+                transform: 'rotateZ(207deg)'
+            },
+            '&.right': {
+                right: -30,
+                transform: 'rotateY(180deg) rotateZ(207deg)'
+            }
+        }
+    },
     wheel: {
         background: '#000',
         border: '5px double #fff',
         height: 100,
         width: 100,
         borderRadius: '50%',
-        position: 'absolute',
-        bottom: 20,
+        // position: 'absolute',
+        // bottom: 20,
         transformOrigin: 'center',
         transform: 'rotate(0deg)',
         '&::after': {
@@ -31,10 +59,10 @@ const useStyles = makeStyles({
             background: 'lightgray'
         },
         '&.left': {
-            left: 120
+            // left: 120
         },
         '&.right': {
-            right: 120
+            // right: 120
         }
     },
     directionBtns: {
@@ -207,11 +235,15 @@ const Gamepad = props => {
         const pp = { ...prevMousePos[wID] }     // pp = prev-point
 
         let degree = getDegCos(mp, pp, cp)
+        // let degree = Math.abs(getDegTan(mp, pp, cp))
 
         if(!isNaN(degree)){
-            // let dir = 1
+            // But we need the direction
+            degree = isNegativeAngle(mp, pp, cp) ? (-1)*degree : degree
+
             if (wID === 'w1') {
-                setW1Deg(w1Deg + degree)
+                // if(pp.x === mp.x || pp.y === mp.y || cp.x === mp.x || cp.y === mp.y) return
+                setW1Deg(w1Deg - degree)
             }
             else if(wID === 'w2') {
                 setW2Deg(w2Deg - degree)
@@ -230,25 +262,64 @@ const Gamepad = props => {
 
     // const post = (url, data) => axios.post(url, data)
 
+    /**
+     * When user clicks on rotate button to rotate the wheel, 
+     * this function will be called.
+     * @param {string} wID wheelID | 'w1' or 'w2'
+     * @param {number} direction 1 or -1 only
+     */
+    const clickToRotate = (wID, direction) => {
+        if( direction !== 1 && direction !== -1 ) return
+        const shift = 10
+
+        if (wID === 'w1') {
+            setW1Deg(w1Deg + shift*direction)
+        }
+        else if(wID === 'w2') {
+            setW2Deg(w2Deg + shift*direction)
+        }
+    }
+
     return (
         <div>
             {/* THIS IS WHEEL 1 on LEFT */}
-            <div className={clsx(classes.wheel, 'left')}
-                ref={w1}
-                onTouchStart={e => setMousePrev(e, 'w1')}
-                onTouchEnd={e => unsetMousePrev(e, 'w1')}
-                onTouchMove={e => trackMouse(e, 'w1')}
-                style={{transform: `rotate(${w1Deg}deg)`}}
-            ></div>
+            <div className={clsx(classes.wheelSet, 'left')}>
+                <RotateIcon 
+                    className='rotate left' 
+                    onClick={e => clickToRotate('w1', -1)}
+                />
+                <div className={clsx(classes.wheel)}
+                    ref={w1}
+                    onTouchStart={e => setMousePrev(e, 'w1')}
+                    onTouchEnd={e => unsetMousePrev(e, 'w1')}
+                    onTouchMove={e => trackMouse(e, 'w1')}
+                    style={{transform: `rotate(${w1Deg}deg)`}}
+                ></div>
+                <RotateIcon 
+                    className='rotate right'
+                    onClick={e => clickToRotate('w1', 1)}
+                />
+            </div>
+            
 
             {/* THIS IS WHEEL 2 on RIGHT */}
-            <div className={clsx(classes.wheel, 'right')}
-                ref={w2}
-                onTouchStart={e => setMousePrev(e, 'w2')}
-                onTouchEnd={e => unsetMousePrev(e, 'w2')}
-                onTouchMove={e => trackMouse(e, 'w2')}
-                style={{transform: `rotate(${w2Deg}deg)`}}
-            ></div>
+            <div className={clsx(classes.wheelSet, 'right')}>
+                <RotateIcon 
+                    className='rotate left'
+                    onClick={e => clickToRotate('w2', -1)}
+                />
+                <div className={clsx(classes.wheel)}
+                    ref={w2}
+                    onTouchStart={e => setMousePrev(e, 'w2')}
+                    onTouchEnd={e => unsetMousePrev(e, 'w2')}
+                    onTouchMove={e => trackMouse(e, 'w2')}
+                    style={{transform: `rotate(${w2Deg}deg)`}}
+                ></div>
+                <RotateIcon 
+                    className='rotate right'
+                    onClick={e => clickToRotate('w2', 1)}
+                />
+            </div>
 
             {/* THE LEFT DIRECTION BUTTONS */}
             <div className={classes.directionBtns}>
