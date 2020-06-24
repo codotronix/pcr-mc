@@ -7,6 +7,11 @@ import axios from 'axios';
 const ROOT = getRoot()
 
 const useStyles = makeStyles({
+    root: {
+        '& svg': {
+            color: '#000'
+        }
+    },
     textFieldLine: {
         display: 'flex',
         alignItems: 'center'
@@ -26,7 +31,7 @@ const Keyboard = props => {
     }
 
     return (
-        <Box p={1}>
+        <Box p={1} className={classes.root}>
             <div className={classes.textFieldLine}>
                 <TextField
                     variant="outlined"

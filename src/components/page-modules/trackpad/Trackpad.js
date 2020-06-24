@@ -8,13 +8,6 @@ import { getRoot } from '../../../utils/config'
 const ROOT = getRoot()
 
 const useStyles = makeStyles({
-    root: {
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        top: 40,
-        bottom: 0
-    },
     trackpad: {
         position: 'absolute',
         top: 5,
@@ -63,7 +56,7 @@ const Trackpad = props => {
     const classes = useStyles()
     // const [p, setP] = useState({})
     let prevMousePos = null
-    let pollTime = 100
+    const pollTime = 100
 
     // useEffect(() => {
     //     axios.post('http://192.168.0.102:9090/move-mouse', {x: 99, y: 102})
@@ -118,7 +111,7 @@ const Trackpad = props => {
     const kbDownArrow = e => {}
 
     return (
-        <div className={classes.root}>
+        <div>
             <div className={classes.trackpad} 
                 onTouchStart={setMousePrev}
                 onTouchEnd={unsetMousePrev}
