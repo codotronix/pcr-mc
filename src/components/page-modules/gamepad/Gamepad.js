@@ -262,11 +262,32 @@ const Gamepad = props => {
 
     // const post = (url, data) => axios.post(url, data)
 
+    /**
+     * When user clicks on rotate button to rotate the wheel, 
+     * this function will be called.
+     * @param {string} wID wheelID | 'w1' or 'w2'
+     * @param {number} direction 1 or -1 only
+     */
+    const clickToRotate = (wID, direction) => {
+        if( direction !== 1 && direction !== -1 ) return
+        const shift = 10
+
+        if (wID === 'w1') {
+            setW1Deg(w1Deg + shift*direction)
+        }
+        else if(wID === 'w2') {
+            setW2Deg(w2Deg + shift*direction)
+        }
+    }
+
     return (
         <div>
             {/* THIS IS WHEEL 1 on LEFT */}
             <div className={clsx(classes.wheelSet, 'left')}>
-                <RotateIcon className='rotate left'/>
+                <RotateIcon 
+                    className='rotate left' 
+                    onClick={e => clickToRotate('w1', -1)}
+                />
                 <div className={clsx(classes.wheel)}
                     ref={w1}
                     onTouchStart={e => setMousePrev(e, 'w1')}
@@ -274,13 +295,19 @@ const Gamepad = props => {
                     onTouchMove={e => trackMouse(e, 'w1')}
                     style={{transform: `rotate(${w1Deg}deg)`}}
                 ></div>
-                <RotateIcon className='rotate right'/>
+                <RotateIcon 
+                    className='rotate right'
+                    onClick={e => clickToRotate('w1', 1)}
+                />
             </div>
             
 
             {/* THIS IS WHEEL 2 on RIGHT */}
             <div className={clsx(classes.wheelSet, 'right')}>
-                <RotateIcon className='rotate left'/>
+                <RotateIcon 
+                    className='rotate left'
+                    onClick={e => clickToRotate('w2', -1)}
+                />
                 <div className={clsx(classes.wheel)}
                     ref={w2}
                     onTouchStart={e => setMousePrev(e, 'w2')}
@@ -288,7 +315,10 @@ const Gamepad = props => {
                     onTouchMove={e => trackMouse(e, 'w2')}
                     style={{transform: `rotate(${w2Deg}deg)`}}
                 ></div>
-                <RotateIcon className='rotate right'/>
+                <RotateIcon 
+                    className='rotate right'
+                    onClick={e => clickToRotate('w2', 1)}
+                />
             </div>
 
             {/* THE LEFT DIRECTION BUTTONS */}
